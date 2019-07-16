@@ -80,7 +80,7 @@ outputstats ()
             "$(echo $kmdinfo | jq .blocks)" \
             "$(timeSince $($komodocli getblock $($komodocli getbestblockhash) | jq .time))" \
             "$(echo $kmdinfo | jq .connections)" \
-            "$(ls -lh ~/.komodo/wallet.dat  | awk '{print $5}')" \
+	    "" \
             "$(echo $kmdtxinfo | jq '[.[] | select(.generated==true)] | length') mined"
 
     declare -a othercoins=()
@@ -139,7 +139,7 @@ outputstats ()
         else
             balance=$(printf "%8.3f" $balance)
         fi
-        printf "$format\n" "${coin[0]}$(checkRepo ${coin[0]} ${repo[0]} ${repo[1]})" \
+        printf "$format\n" "${coin[0]}" \
                 "$coinsntrzd" \
                 "$(timeSince $coinslastntrztime)" \
                 "$otherutxo" \
@@ -147,7 +147,7 @@ outputstats ()
                 "$($coinexec getblockchaininfo | jq .blocks)" \
                 "$(timeSince $($coinexec getblock $($coinexec getbestblockhash) | jq .time))" \
                 "$($coinexec getnetworkinfo | jq .connections)" \
-                "$(ls -lh ~/${coin[3]}/wallet.dat | awk '{print $5}')"
+		"" 
     done
 
     if (( thirdpartycoins < 1 )); then
@@ -180,7 +180,7 @@ outputstats ()
                     laststring="All:$totalntrzd"
                 fi
 
-                printf "$format" "${coin[0]}$(checkRepo ${coin[0]} ${repo[0]} ${repo[1]})" \
+                printf "$format" "${coin[0]}" \
                         "$acntrzd" \
                         "$(timeSince $lastntrztime)" \
                         "$acutxo" \
@@ -188,7 +188,7 @@ outputstats ()
                         "$(echo $info | jq .blocks)" \
                         "$(timeSince $($komodocli -ac_name=${coin[0]} getblock $($komodocli -ac_name=${coin[0]} getbestblockhash) | jq .time))" \
                         "$(echo $info | jq .connections)" \
-                        "$(ls -lh ~/.komodo/${coin[0]}/wallet.dat  | awk '{print $5}')" \
+			"" \
                         "$laststring"
 
                 if [[ ${coin[0]} != ${lastcoin[0]} ]]; then
