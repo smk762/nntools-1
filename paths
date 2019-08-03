@@ -10,20 +10,20 @@ coinsfirst=(
 )
 
 coinsthird=(
-'CHIPS $HOME/chips3/src/chips-cli $HOME/chips3/src/chipsd .chips'
-'GAME gamecredits-cli $HOME/GameCredits/src/gamecreditsd .gamecredits'
-'EMC2 einsteinium-cli $HOME/einsteinium/src/einsteiniumd .einsteinium'
-'GIN gincoin-cli $HOME/gincoin-core/src/gincoind .gincoincore'
-'VRSC verus $HOME/VerusCoin/src/verusd .komodo/VRSC'
+#'CHIPS $HOME/chips3/src/chips-cli $HOME/chips3/src/chipsd .chips'
+#'GAME gamecredits-cli $HOME/GameCredits/src/gamecreditsd .gamecredits'
+#'EMC2 einsteinium-cli $HOME/einsteinium/src/einsteiniumd .einsteinium'
+#'GIN gincoin-cli $HOME/gincoin-core/src/gincoind .gincoincore'
+'VRSC $HOME/VerusCoin/src/verus $HOME/VerusCoin/src/verusd .komodo/VRSC'
 )
 
 #for git checking - path and remote branch
 declare -A repos=(
 [KMD]="$HOME/komodo origin/beta"
 [SUPERNET]="$HOME/SuperNET origin/beta_season3"
-[CHIPS]="$HOME/chips3 origin/dev"
-[GAME]="$HOME/GameCredits origin/master"
-[EMC2]="$HOME/einsteinium origin/master"
-[GIN]="$HOME/gincoin-core origin/master"
+#[CHIPS]="$HOME/chips3 origin/dev"
+#[GAME]="$HOME/GameCredits origin/master"
+#[EMC2]="$HOME/einsteinium origin/master"
+#[GIN]="$HOME/gincoin-core origin/master"
 [VRSC]="$HOME/VerusCoin origin/master"
 )
